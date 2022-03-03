@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from assign_01_app.models import Person
 
+#  Exercise 1 : create 02 views
 def index(request):
     response = HttpResponse()
     person_list = Person.objects.order_by('id')[:10]
