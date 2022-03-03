@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from assign_01_app.models import Person
+from .forms import PersonForm
 
 #  Exercise 1 : create 02 views
 def index(request):
@@ -35,4 +36,18 @@ class DetailView(generic.DetailView):
     model = Person
     template_name = 'assign_02_app/detail.html'
 
+
+def formInput(request):
+    context = {}
+
+    # create object of form
+    form = PersonForm(request.POST or None, request.FILES or None)
+
+    # check if form data is valid
+    if form.is_valid():
+        # save the form data to model
+        form.save()
+
+    context['form'] = form
+    return render(request, "assign_02_app/form.html", context)
 

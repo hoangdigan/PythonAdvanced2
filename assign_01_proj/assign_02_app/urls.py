@@ -11,4 +11,7 @@ urlpatterns = [
    # Generic View
    path('ex2/', views.IndexView.as_view(), name='index'),
    path('ex2/<int:pk>/', views.DetailView.as_view(), name='detail'),
+
+   # Assign 3 - Form input
+   path('', views.formInput, name='formInput')
 ]

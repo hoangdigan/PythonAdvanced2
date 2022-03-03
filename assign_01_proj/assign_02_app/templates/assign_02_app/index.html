@@ -5,7 +5,7 @@
 {% if person_list %}
     <ul>
     {% for person in person_list %}
-        <li><a href="{% url 'assign_02_app:detail' person.id %}">{{ person.name }}</a></li>
+        <li><a href="{% url 'assign_02_app:detail' person.id %}">{{ person.name }}</a> - {{ person.age }} - {{ person.address }} - {{ person.mobile_number }}</li>
     {% endfor %}
     </ul>
 {% else %}
