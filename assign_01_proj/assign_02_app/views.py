@@ -5,24 +5,7 @@ from django.views import generic
 from assign_01_app.models import Person
 from .forms import PersonForm
 
-#  Exercise 1 : create 02 views
-def index(request):
-    response = HttpResponse()
-    person_list = Person.objects.order_by('id')[:10]
-    for p in person_list:
-        output = ', '.join([str(p.id), p.name, str(p.age), p.address, p.mobile_number])
-        response.write(output)
-        response.write("<br>")
-    return HttpResponse(response)
-
-def detail(request, person_id):
-    response = HttpResponse()
-    p = Person.objects.get(id=person_id)
-    output = '<br>'.join([str(p.id), p.name, str(p.age), p.address, p.mobile_number])
-    response.write(output)
-    return HttpResponse(response)
-
-#  Exercise 2 : use templates
+#  Exercise 1 : use view
 
 class IndexView(generic.ListView):
     template_name = 'assign_02_app/index.html'
@@ -31,12 +14,24 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Person.objects.all
 
-
 class DetailView(generic.DetailView):
     model = Person
     template_name = 'assign_02_app/detail.html'
 
+#  Exercise 2 : use teamplate
+def index(request):
+    person_list = Person.objects.order_by('id')[:10]
+    context = {'person_list': person_list}
+    return render(request, 'assign_02_app/index.html', context)
 
+def detail(request, person_id):
+    try:
+        person = Person.objects.get(pk=person_id)
+    except Person.DoesNotExist:
+        raise Http404("Person does not exist")
+    return render(request, 'assign_02_app/detail.html', {'person': person})
+
+# excercise 3 : form
 def formInput(request):
     context = {}
 
@@ -50,4 +45,5 @@ def formInput(request):
 
     context['form'] = form
     return render(request, "assign_02_app/form.html", context)
+
 
