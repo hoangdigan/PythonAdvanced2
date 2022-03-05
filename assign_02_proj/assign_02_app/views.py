@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
-from assign_01_app.models import Person
+from .models import Person
 from .forms import PersonForm
 
 #  Exercise 1 : use view
