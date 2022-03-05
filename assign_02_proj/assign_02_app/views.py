@@ -12,7 +12,7 @@ class IndexView(generic.ListView):
     context_object_name = 'person_list'
 
     def get_queryset(self):
-        return Person.objects.all
+        return Person.objects.all()
 
 class DetailView(generic.DetailView):
     model = Person

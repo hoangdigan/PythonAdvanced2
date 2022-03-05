@@ -38,7 +38,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="f25ae460-c402-474a-8881-b9a5212e654a" object-ref="schemas/main/tables/assign_02_app_person" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8def9a76-c7e1-4483-977b-21ed2e17e240" />
@@ -46,12 +48,12 @@
     <connection id="f25ae460-c402-474a-8881-b9a5212e654a" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="f25ae460-c402-474a-8881-b9a5212e654a" dataset="main.assign_02_app_person" active-filter-id="">
+    <filter-actions connection-id="8def9a76-c7e1-4483-977b-21ed2e17e240" dataset="main.assign_01_app_person" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="f25ae460-c402-474a-8881-b9a5212e654a" dataset="main.assign_02_app_person" active-filter-id="EMPTY_FILTER">
       <filter id="838fb668-b2a5-481d-8953-8432ae14a8d5" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="8def9a76-c7e1-4483-977b-21ed2e17e240" dataset="main.assign_01_app_person" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
