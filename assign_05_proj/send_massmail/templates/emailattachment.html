@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Assignment 05</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+         .container {
+            padding: 20px;
+            margin: 0 auto;
+            border: 2px solid black;
+            margin-top: 50px;
+            height: 400px;
+            width: 420px;
+            font-size: 14px;
+        }
+
+        table {
+            margin-left: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        th, td {
+           text-align: left;
+           padding: 10px;
+        }
+
+        button {
+          background-color: blue;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          margin: 10px 2px;
+          cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1> Send mass mail</h1>
+      {% if email_form %}
+      <form method="POST" action ="" enctype="multipart/form-data">
+        {% csrf_token %}
+          <table>
+                <tr>
+                    <th>
+                        <label for="{{ email_form.email.id_for_label }}">Email:</label>
+                    </th>
+                    <td>
+                        {{ email_form.email }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>
+                        <label for="{{ email_form.subject.id_for_label }}">Subject:</label>
+                    </th>
+                    <td>
+                        {{ email_form.subject }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>
+                        <label for="{{ email_form.message.id_for_label }}">Message:</label>
+                    </th>
+                    <td>
+                        {{ email_form.message }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>
+                        <label for="{{ email_form.attach.id_for_label }}">Attach:</label>
+                    </th>
+                    <td>
+                        <input type="file" id="files" name="attach" multiple>
+<!--                        {{ email_form.attach }}-->
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Send Email</button>
+                    </td>
+                </tr>
+        </table>
+
+      </form>
+      {% endif %}
+        {% if error_message %}
+        <div>
+            <h3> {{error_message}} <h3>
+        </div>
+        {% endif %}
+</div>
+</body>
+</html>
+
