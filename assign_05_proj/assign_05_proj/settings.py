@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'send_massmail'
+    'send_massmail',
+    'cache_database',
+    'cache_file',
+    'cache_mem'
 ]
 
 MIDDLEWARE = [
@@ -48,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'assign_05_proj.urls'
@@ -132,3 +138,31 @@ EMAIL_HOST_PASSWORD ='@dksc@2017@'
 EMAIL_PORT =587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+# cache database
+# CACHES = {
+#     'default':{
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#     }
+# }
+
+# cache file
+# CACHES = {
+#     'default': {
+#     'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#     'LOCATION': 'd:/cache.txt',
+#     }
+# }
+
+# cache mem
+
+SESSIONS_ENGINE='django.contrib.sessions.backends.cache'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+

@@ -19,4 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('send_massmail.urls')),
+    path('cache-database', include('cache_database.urls')),
+    path('cache-file', include('cache_file.urls')),
+    path('cache-mem', include('cache_mem.urls')),
 ]

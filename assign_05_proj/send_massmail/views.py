@@ -25,7 +25,7 @@ class EmailAttachementView(View):
             message = form.cleaned_data['message']
             email = form.cleaned_data['email'].split(";")
             files = request.FILES.getlist('attach')
-            print(files)
+
             try:
                 mail = EmailMessage(subject, message, settings.EMAIL_HOST_USER, email)
                 for f in files:
