@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} SearchName {% endblock %}
+{% block content %}
+<div class="container">
+    <p><h2>Flask SQLAlchemy ORM </h2>  </p>
+    <hr>
+     <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-8">
+               <form action="" method="post" autocomplete="off">
+
+               <div class="row">
+                    <div class="col-4">
+                         <!-- Example single danger button -->
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Search Option
+                              </button>
+                              <div id='myid' class="dropdown-menu">
+                                  <li id='1'><a class="dropdown-item" href="/searchlike">Like</a></li>
+                                  <li id='2'><a class="dropdown-item" href="/searchnotlike">Not Like</a></li>
+                                  <li id='3'><a class="dropdown-item" href="/searchcontains">Contain</a></li>
+                                  <li id="4"><a class="dropdown-item" href="/searchstartwith">StartWith</a></li>
+                                  <li id="5"><a class="dropdown-item" href="/searchendwith">EndWith</a></li>
+
+                              </div>
+                            </div>
+                    </div>
+
+                    <div class="col-5">
+                         <input type="text" class="form-control" name="tag" id="tag"  placeholder="Enter company name"/>
+                    </div>
+                    <div class="col-3" align="left">
+                        <input type="submit" value="Search" class="form-control btn btn-primary " name="">
+                    </div>
+               </form>
+              </div>
+          </div>
+     </div>
+    <hr>
+    <div class="row">
+        <div class="col md-12">
+                <table class="table table-hover table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Contact Title</th>
+                    </tr>
+
+                   {% for row in customers %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.company_name}}</td>
+                        <td>{{row.contact_name}}</td>
+                        <td>{{row.contact_title}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} SearchNameID {% endblock %}
+
+{% block content %}
+<div class="container">
+    <p><h2>Flask SQLAlchemy ORM </h2>  </p>
+    <hr>
+     <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-8">
+               <form action="" method="post" autocomplete="off">
+
+               <div class="row">
+                    <div class="col-3">
+                         <!-- Example single danger button -->
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Search Option
+                              </button>
+                              <div id='myid' class="dropdown-menu">
+                                  <li id='1'><a class="dropdown-item" href="/searchand">Query And</a></li>
+                                  <li id='2'><a class="dropdown-item" href="/searchor">Query Or</a></li>
+                                  <li id='3'><a class="dropdown-item" href="/searchmultifilter">Multiple Filter</a></li>
+                                  <li id="4"><a class="dropdown-item" href="/searchmultifilterone">Multiple Filter in One</a></li>
+
+                              </div>
+                            </div>
+                    </div>
+
+                    <div class="col-3">
+                         <input type="text" class="form-control" name="name" id="name"  placeholder="Enter Name"/>
+
+                    </div>
+                   <div class="col-3">
+
+                        <input type="text" class="form-control" name="id" id="id"  placeholder="Enter ID"/>
+                    </div>
+
+                    <div class="col-3" align="left">
+                        <input type="submit" value="Search" class="form-control btn btn-primary " name="">
+                    </div>
+               </form>
+              </div>
+          </div>
+     </div>
+    <hr>
+    <div class="row">
+        <div class="col md-12">
+                <table class="table table-hover table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Contact Title</th>
+                    </tr>
+
+                   {% for row in customers %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.company_name}}</td>
+                        <td>{{row.contact_name}}</td>
+                        <td>{{row.contact_title}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+

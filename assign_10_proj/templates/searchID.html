@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} SearchID {% endblock %}
+
+{% block content %}
+<div class="container">
+    <p><h2>Flask SQLAlchemy ORM </h2>  </p>
+    <hr>
+     <div class="row">
+          <div class="col-4">
+
+          </div>
+          <div class="col-8">
+               <form action="" method="post" autocomplete="off">
+
+               <div class="row">
+                    <div class="col-4">
+                         <!-- Example single danger button -->
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Search Option
+                              </button>
+                              <div id='myid' class="dropdown-menu">
+                                  <li id='1'><a class="dropdown-item" href="/searchequals">Equals</a></li>
+                                  <li id='2'><a class="dropdown-item" href="/searchnotequals">Not Equals</a></li>
+                                  <li id='3'><a class="dropdown-item" href="/searchgreaterthan">Great than</a></li>
+                                  <li id="4"><a class="dropdown-item" href="/searchlessthan">Less than</a></li>
+                                  <li id="5"><a class="dropdown-item" href="/searchin">Query In</a></li>
+                                  <li id="6"><a class="dropdown-item" href="/searchnotin">Not In</a></li>
+                                  <li id="7"><a class="dropdown-item" href="/searchinnegated">In Negated</a></li>
+
+                              </div>
+                            </div>
+                    </div>
+
+                    <div class="col-5">
+                         <input type="text" class="form-control" name="tag" id="tag"  placeholder="Enter company ID "/>
+                    </div>
+                    <div class="col-3" align="left">
+                        <input type="submit" value="Search" class="form-control btn btn-primary " name="">
+                    </div>
+               </form>
+              </div>
+          </div>
+     </div>
+    <hr>
+    <div class="row">
+        <div class="col md-12">
+                <table class="table table-hover table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th>Contact Title</th>
+                    </tr>
+
+                   {% for row in customers %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.company_name}}</td>
+                        <td>{{row.contact_name}}</td>
+                        <td>{{row.contact_title}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
