@@ -12,7 +12,7 @@ def addform(request):
             # save the form data to model
             form.save()
             message = 'Update Successfully. Thank you!'
-            return render(request, "index.html")
+            return render(request, "index0.html")
         else:
             message = 'Data is invalid, try again!'
     else:

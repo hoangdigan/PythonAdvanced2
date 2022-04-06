@@ -266,6 +266,7 @@ def searchMultiFilterOne():
 
     return render_template('searchNameID.html', customers=customers)
 
+
 if __name__ == '__main__':
     setup_db()
     session = db_session.factory()

@@ -8,7 +8,7 @@ from .forms import PersonForm
 #  Exercise 1 : use view
 
 class IndexView(generic.ListView):
-    template_name = 'assign_02_app/index.html'
+    template_name = 'assign_02_app/index0.html'
     context_object_name = 'person_list'
 
     def get_queryset(self):
@@ -22,7 +22,7 @@ class DetailView(generic.DetailView):
 def index(request):
     person_list = Person.objects.order_by('id')[:10]
     context = {'person_list': person_list}
-    return render(request, 'assign_02_app/index.html', context)
+    return render(request, 'assign_02_app/index0.html', context)
 
 def detail(request, person_id):
     try:
