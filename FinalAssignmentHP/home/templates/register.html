@@ -4,6 +4,16 @@
 {% block registeractive %} active {% endblock registeractive %}
 
 {% block css %}
+.container-register:hover {
+            height: 100%;
+            background-color: #4BC5DA;
+            -webkit-transition: background-color 3s ease, height 3s ease;
+            -moz-transition: background-color 3s ease, height 3s ease;
+            -o-transition: background-color 3s ease, height 3s ease;
+            -ms-transition: background-color 3s ease, height 3s ease;
+            transition: background-color 3s ease, height 3s ease;
+}
+
 {% endblock %}
 {% block body %}
 <div class="container-register">
