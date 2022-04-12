@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Blog Post {% endblock %}
+
+{% block css %}
+    .footer-distributed{
+        position: fixed;
+        bottom: 0;
+    }
+    .row {
+        margin-bottom:10px;
+    }
+{% endblock %}
+
+{% block body %}
+
+    <form enctype="multipart/form-data" method="POST"> {% csrf_token %}
+    <div class="container mt-3">
+
+         <div class="row">
+             <div class="col-md-2">
+
+             </div>
+
+             <div class="col-md-10">
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="title">{{form.title.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.title}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="slug">{{form.slug.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.slug}}
+                        </div>
+                 </div>
+
+                <div class="row">
+                        <div class="col-md-2">
+                            <label for="content">{{form.content.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                           <small><i>{{form.content}}</i></small>
+                        </div>
+                 </div>
+
+                <div class="row">
+                        <div class="col-md-2">
+                             <label for="image">{{form.image.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            <small>{{form.image}}</small>
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                             <button class="btn btn-primary">Update Blog</button>
+                        </div>
+                        <div class="col-md-10">
+
+                        </div>
+                 </div>
+
+             </div>
+        </div>
+    </div>
+    </form>
+{% endblock %}
+
+
+
+

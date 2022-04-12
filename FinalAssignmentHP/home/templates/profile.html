@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock %}
+{% block profileactive %} active {% endblock profileactive %}
+
+{% block css %}
+    .profile{
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+        width: 950px;
+
+    }
+    .profile-img{
+        text-align: center;
+    }
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+
+    .footer-distributed{
+        position: fixed;
+        bottom: 0;
+    }
+
+{% endblock %}
+{% block body %}
+
+<div class="container profile">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile-img">
+                    {% if user.profile.image %}
+                    <img src="/media/{{user.profile.image}}" alt="" width="200px" height="220px">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="profile-tab">
+                    <div class="tab-pane">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Username:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{user}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Full Name:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{user.get_full_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{user.email}}</p>
+                            </div>
+                        </div>
+                        {% if user.profile.phone_no %}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Phone Number:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p>{{user.profile.phone_no}}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if user.profile.bio %}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Bio:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p class="card-text"><small><i>{{user.profile.bio}}</i></small></p>
+                            </div>
+                        </div>
+                        <br>
+                        {% endif %}
+                        {% if user.profile.linkedin %}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Linkedin:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p><a href="{{user.profile.linkedin}}">{{user.profile.linkedin}}</a></p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if user.profile.instagram %}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Instagram:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p><a href="{{user.profile.instagram}}">{{user.profile.instagram}}</a></p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if user.profile.facebook %}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Facebook:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <p><a href="{{user.profile.facebook}}">{{user.profile.facebook}}</a></p>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <a href="/edit_profile/" class="btn btn-secondary">Edit Profile</a>
+                </div>
+            </div>
+</div>
+</div>
+{% endblock %}

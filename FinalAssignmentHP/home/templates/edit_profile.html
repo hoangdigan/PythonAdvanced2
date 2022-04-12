@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Page {% endblock %}
+
+{% block css %}
+    .footer-distributed{
+            position: fixed;
+            bottom: 0;
+    }
+    .row {
+        margin-top: 3px;
+        margin-bottom: 2px;
+    }
+{% endblock %}
+
+{% block body %}
+<form action="/edit_profile/" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="container mt-2">
+        <div class="row">
+             <div class="col-md-1">
+
+             </div>
+
+             <div class="col-md-8">
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="phone_no">{{form.phone_no.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.phone_no}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="facebook">{{form.facebook.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.facebook}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="instagram">{{form.instagram.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.instagram}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="linkedin">{{form.linkedin.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.linkedin}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="bio">{{form.bio.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.bio}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+                            <label for="image">{{form.image.label}}</label>
+                        </div>
+                        <div class="col-md-10">
+                            {{form.image}}
+                        </div>
+                 </div>
+
+                 <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                 </div>
+             </div>
+            <div class="col-md-3">
+
+             </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% block js %}
+
+<script>
+    {% if alert %}
+    alert('Your Profile has been updated successfully.');
+    document.location = '/profile/';
+    {% endif %}
+</script>
+{% endblock %}
