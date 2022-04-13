@@ -13,12 +13,20 @@
 
       <title> {% block title %} {% endblock %} </title>
       <style> {% block css %} {% endblock %} </style>
-
+      <style>
+          #searched:focus {
+            background-color: #e6ccff;
+          }
+          #searched {
+            margin-right: 5px;
+          }
+          .navbar-brand:hover {background-color: red}
+      </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'project_index' %}">RP Portfolio</a>
+          <a class="navbar-brand" href="{% url 'project_index' %}">&nbspRP Portfolio&nbsp</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
