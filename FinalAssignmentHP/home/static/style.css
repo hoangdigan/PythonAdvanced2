@@ -204,7 +204,21 @@ body {
     color:yellow;
 }
 
+.full {
+	width: 100%;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
 
+.blog_cont h4 {
+    font-size: 32px;
+    color: #2c2c2d;
+    line-height: 40px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
 
 
 
